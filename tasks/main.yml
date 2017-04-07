@@ -30,3 +30,5 @@
     name: metricbeat
     state: started
     enabled: true
+  tags:
+    - update_metricbeat_config
