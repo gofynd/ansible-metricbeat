@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author:
+  description: Installs Elastic's Metricbeat for forwarding logs.
+  license:
+  min_ansible_version: 1.2
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - monitoring
+  - system
+dependencies: []

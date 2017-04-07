@@ -1,0 +1,7 @@
+ansible.cfg
+.vagrant
+.kitchen
+*.swp
+*.pyc
+*.retry
+.idea/*

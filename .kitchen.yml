@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  hosts: all
+  name: ansible_playbook
+  require_chef_for_busser: true
+  require_ruby_for_busser: false
+  ansible_verbose: true
+  ansible_verbosity: 1
+  extra_vars:
+    docker_opts: "--userland-proxy=false --bip=192.168.200.1/22"
+
+platforms:
+  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+  - name: centos-6.8
+  - name: centos-7.2
+    provisioner:
+      ansible_yum_repo: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+suites:
+  - name: default
+  - name: cacert
+  - name: version5.0

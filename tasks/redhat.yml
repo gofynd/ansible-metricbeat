@@ -1,0 +1,19 @@
+---
+- name: add rpm key for elastic.co
+  rpm_key:
+    key: "{{ metricbeat_gpg_url }}"
+
+- name: create beats yum repo
+  yumrepo:
+    name: beats
+    baseurl: "{{ metricbeat_repo_url }}"
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: "{{ metricbeat_gpg_url }}"
+
+- name: install metricbeat
+  yum:
+    name: "metricbeat-{{ metricbeat_version }}"
+    state: present
+  notify:
+    - restart metricbeat
