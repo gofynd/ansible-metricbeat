@@ -8,6 +8,8 @@
     dest: /etc/metricbeat/metricbeat.yml
   notify:
     - restart metricbeat
+  tags:
+    - update_metricbeat_config
 
 - name: copy ca certificate if required
   copy:
@@ -20,6 +22,8 @@
 
 - name: flush handlers to prevent start then restart
   meta: flush_handlers
+  tags:
+    - update_metricbeat_config
 
 - name: start and enable metricbeat
   service:
