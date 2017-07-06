@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author:
-  description: Installs Elastic's Metricbeat for forwarding logs.
+  description: Installs Elastic's Metricbeat for forwarding metrics to ElasticSearch.
   license:
   min_ansible_version: 1.2
   platforms:

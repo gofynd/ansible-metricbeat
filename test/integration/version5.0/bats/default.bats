@@ -1,17 +1,17 @@
 #!/usr/bin/env bats
 
-@test "filebeat script is in path" {
-    command -v filebeat.sh
+@test "metricbeat script is in path" {
+    command -v metricbeat.sh
 }
 
-@test "/tmp/filebeat is in filebeat.yml config" {
-    grep "file: {filename: filebeat, path: /tmp/filebeat}" /etc/filebeat/filebeat.yml
+@test "/tmp/metricbeat is in metricbeat.yml config" {
+    grep "file: {filename: metricbeat, path: /tmp/metricbeat}" /etc/metricbeat/metricbeat.yml
 }
 
-@test "filebeat is running" {
-    service filebeat status
+@test "metricbeat is running" {
+    service metricbeat status
 }
 
 @test "ca certificate does not exist" {
-    [ ! -f /etc/filebeat/ca.crt ]
+    [ ! -f /etc/metricbeat/ca.crt ]
 }
