@@ -1,1 +1,3 @@
-elasticsearch_proxy_url: "http://fidelius-filebeat.addsale.com:80"
+---
+# vars file for ansible-metricbeat
+
