@@ -3,6 +3,27 @@ ansible-nginx
 
 This role installs and sets up Metricbeat package on Ubuntu.
 
+Pre-Requisites
+------------
+
+You will need a basic understanding how ansible works. Learn more about Ansible by 
+browsing through its [documentation](http://docs.ansible.com/ansible/latest/index.html).
+A rudimentary understanding of playbook organization via [roles](http://docs.ansible.com/ansible/latest/playbooks_roles.html#roles) 
+also helps
+
+Getting Started
+---------------
+
+- Create a file requirements.yml at the top level in your ansible project directory
+```yml
+- src: git@github.com:gofynd/ansible-metricbeat.git
+  version: "v0.1"
+```
+- Install this role via ansible-galaxy as below
+```bash
+ansible-galaxy install -r requirements.yml
+```
+
 Requirements
 ------------
 
@@ -103,3 +124,4 @@ Author Information
 ------------------
 
 Fynd
+Have feedback or want to submit bugs/feature requests? File an issue on the [Issue Tracker](https://github.com/gofynd/ansible-metricbeat/issues)
