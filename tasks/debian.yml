@@ -11,7 +11,7 @@
 
 - name: install metricbeat
   apt:
-    name: metricbeat
+    name: "metricbeat={{ metricbeat_version }}"
     state: present
   notify:
     - restart metricbeat
