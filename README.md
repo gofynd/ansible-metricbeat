@@ -1,28 +1,28 @@
-ansible-nginx
-=========
+ansible-metricbeat
+==================
 
 This role installs and sets up Metricbeat package on Ubuntu.
 
 Pre-Requisites
-------------
+--------------
 
-You will need a basic understanding how ansible works. Learn more about Ansible by 
+You will need a basic understanding how ansible works. Learn more about Ansible by
 browsing through its [documentation](http://docs.ansible.com/ansible/latest/index.html).
-A rudimentary understanding of playbook organization via [roles](http://docs.ansible.com/ansible/latest/playbooks_roles.html#roles) 
+A rudimentary understanding of playbook organization via [roles](http://docs.ansible.com/ansible/latest/playbooks_roles.html#roles)
 also helps
 
 Getting Started
 ---------------
 
 - Create a file requirements.yml at the top level in your ansible project directory
-```yml
-- src: git@github.com:gofynd/ansible-metricbeat.git
-  version: "v0.1"
-```
+  ```yml
+  - src: git@github.com:gofynd/ansible-metricbeat.git
+    version: "v0.1"
+  ```
 - Install this role via ansible-galaxy as below
-```bash
-ansible-galaxy install -r requirements.yml
-```
+  ```bash
+  ansible-galaxy install -r requirements.yml
+  ```
 
 Requirements
 ------------
@@ -35,15 +35,14 @@ Role Variables
 A list of role variables with their descriptions is below
 
 ```yaml
-
 # The version of metricbeat to install
 metricbeat_version: 5.3
 
 # `metricbeat_config` is templated directly into metricbeat.yml for the config.
 # You are expected to override this variable, as these configurations are
 # only suited for development purposes.
-# See https://github.com/elastic/metricbeat/blob/master/etc/metricbeat.yml for
-# an exhaustive list of configurations.
+# See https://www.elastic.co/guide/en/beats/metricbeat/current/configuring-howto-metricbeat.html
+# for an exhaustive list of configurations.
 metricbeat_config:
   fields:
     env: "{{ env | default('dev') }}"
@@ -91,7 +90,6 @@ metricbeat_config:
       - name: metricbeat.log
       - keepfiles: 5
       - rotateeverybytes: 10485760 # = 10MB
-
 ```
 
 Dependencies
@@ -101,18 +99,18 @@ None
 
 Example Playbook
 ----------------
-- Install nginx with a custom site template
+Install nginx with a custom site template.
 
-```
-  hosts:
-   - servers
+```yaml
+---
+- hosts:
+    - servers
 
   roles:
     - metricbeat
 
   vars:
-    - elasticsearch_proxy_url: "https://my-elasticsearch-proxy.foo.com"
-
+    elasticsearch_proxy_url: "https://my-elasticsearch-proxy.foo.com"
 ```
 
 License
